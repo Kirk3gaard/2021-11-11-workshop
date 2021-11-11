@@ -1,7 +1,8 @@
 (input_seqnames,) = glob_wildcards("data/{filename}.faa")
 
 rule  all:
-    input: expand("temp/{name}.mafft_aligned.fasttree_gtr.tre", name = input_seqnames)
+    input: expand("temp/{name}.mafft_aligned.fasttree_gtr.tre", name = input_seqnames),
+           expand("temp/{name}.mafft_aligned.fasttree_lg.tre", name = input_seqnames),
 
 rule mafft:
     input: "data/{seqname}.faa"
@@ -10,6 +11,7 @@ rule mafft:
 
 rule fasttree:
     input: "temp/{seqname}.{aligner}_aligned.faa"
-    output: "temp/{seqname}.{aligner}_aligned.fasttree_gtr.tre"
-    shell: "module load fasttree && fasttree {input} > {output}"
+    output: "temp/{seqname}.{aligner}_aligned.fasttree_{model}.tre"
+    log: "log/{seqname}.{aligner}_alignted.fasttree_{model}.log"
+    shell: "module load fasttree && fasttree -{wildcards.model} -log {log} {input} > {output}"
 
