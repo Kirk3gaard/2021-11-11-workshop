@@ -1,1 +1,5 @@
-somechange
+rule mafft:
+    input: "data/DsrA.faa"
+    output: "temp/DsrA.mafft_aligned.faa"
+    shell: "mafft {input} > {output}"
+    
