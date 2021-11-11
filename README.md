@@ -1,3 +1,3 @@
 # 2021-11-11-workshop
 
-mods
+Place for small exercises for the data management workshop 2021
