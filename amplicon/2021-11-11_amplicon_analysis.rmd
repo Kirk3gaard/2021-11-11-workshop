@@ -1,0 +1,41 @@
+---
+title: "Amplicon analysis"
+output: html_document
+---
+
+## Description
+
+A bunch of samples were submitted for amplicon sequencing. 
+
+## Tasks
+
+* Install the [ampvis2](https://github.com/MadsAlbertsen/ampvis2/) package.
+* Create a boxplot of the 5 most abundant phyla grouped by soil type
+* Create a heatmap of the ten most abundant ASVs
+* How many samples are there for each soil type?
+* IS there any relationship between soil type and pH?
+* What is the most abundant family?
+* Remember to comment what you find.
+
+## Load packages
+
+```{r loadlibraries,echo=TRUE,warning=FALSE,message=FALSE}
+library(tidyverse)
+library(ampvis2)
+library(kableExtra)
+options(scipen = 10)
+```
+
+## Load data
+
+```{r loaddata,echo=TRUE,warning=FALSE,message=FALSE}
+# Load ASV data
+AMP <- readRDS(file.path("data/AMP.rds"))
+```
+
+## What does the data look like?
+
+```{r showdata,echo=FALSE,warning=FALSE,message=FALSE}
+AMP
+```
+
