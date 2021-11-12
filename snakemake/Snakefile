@@ -1,3 +1,5 @@
+configfile: "config.yaml"
+
 (input_seqnames,) = glob_wildcards("data/{filename}.faa")
 
 
@@ -7,7 +9,7 @@ rule all:
         "results/{name}.{aligner}_aligned.fasttree_{model}.tre",
         name = input_seqnames,
         aligner = ["mafft", "muscle"],
-        model = ["gtr", "lg"]
+        model = config["tree"]["model"]
         )
 
 
