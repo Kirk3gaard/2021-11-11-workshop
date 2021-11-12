@@ -30,7 +30,7 @@ ML_NNI3	(tr|A0A0P7ZK23|A0A0P7ZK23_9EURY:0.38771,tr|I6X1V3|I6X1V3_9CHLR:0.02622,(
 TreeLogLk	ML_NNI3	-6132.8124	MaxChange	0.0000
 ML_Lengths2	(tr|A0A0P7ZK23|A0A0P7ZK23_9EURY:0.38771,tr|I6X1V3|I6X1V3_9CHLR:0.02617,(tr|I6XBL4|I6XBL4_9CHLR:0.03252,(tr|I6WH63|I6WH63_9CHLR:0.02833,tr|A0A6J4ZGR8|A0A6J4ZGR8_9ZZZZ:0.01949):0.03675):0.02031);
 TreeLogLk	ML_Lengths2	-6132.8121
-Total time: 0.22 seconds Unique: 5/5 Bad splits: 0/2
+Total time: 0.23 seconds Unique: 5/5 Bad splits: 0/2
 Dist/N**2: by-profile 12.360 (out 0.480) by-leaf 1.560 avg-prof 5.160
  Hill-climb: 0 Update-best: 3
 NNI: 0 SPR: 0 ML-NNI: 1

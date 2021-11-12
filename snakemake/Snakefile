@@ -16,9 +16,10 @@ rule mafft:
         "data/{seqname}.faa"
     output:
         "intermediate/{seqname}.mafft_aligned.faa"
+    threads: 2
     shell:
         "module load mafft && "
-        "mafft {input} > {output}"
+        "mafft --thread {threads} {input} > {output}"
 
 
 rule muscle:

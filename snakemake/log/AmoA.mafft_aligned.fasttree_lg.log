@@ -30,7 +30,7 @@ ML_NNI3	(sp|B3EUH8|ENO_AMOA5:1.04405,sp|B3ER62|GLYA_AMOA5:0.71116,(sp|Q04507|AMO
 TreeLogLk	ML_NNI3	-5758.6124	MaxChange	0.0000
 ML_Lengths2	(sp|B3EUH8|ENO_AMOA5:1.07086,sp|B3ER62|GLYA_AMOA5:0.69605,(sp|Q04507|AMOA_NITEU:1.76628,(sp|B3ER35|TPIS_AMOA5:0.72776,sp|B3ERM8|LON_AMOA5:0.61371):0.46298):0.47493);
 TreeLogLk	ML_Lengths2	-5758.5319
-Total time: 0.13 seconds Unique: 5/5 Bad splits: 0/2
+Total time: 0.14 seconds Unique: 5/5 Bad splits: 0/2
 Dist/N**2: by-profile 12.360 (out 0.480) by-leaf 1.560 avg-prof 5.160
  Hill-climb: 0 Update-best: 3
 NNI: 0 SPR: 0 ML-NNI: 0
