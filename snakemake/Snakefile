@@ -1,17 +1,43 @@
 (input_seqnames,) = glob_wildcards("data/{filename}.faa")
 
-rule  all:
-    input: expand("temp/{name}.mafft_aligned.fasttree_gtr.tre", name = input_seqnames),
-           expand("temp/{name}.mafft_aligned.fasttree_lg.tre", name = input_seqnames),
+
+rule all:
+    input:
+        expand(
+        "results/{name}.{aligner}_aligned.fasttree_{model}.tre",
+        name = input_seqnames,
+        aligner = ["mafft", "muscle"],
+        model = ["gtr", "lg"]
+        )
+
 
 rule mafft:
-    input: "data/{seqname}.faa"
-    output: "temp/{seqname}.mafft_aligned.faa"
-    shell: "mafft {input} > {output}"
+    input:
+        "data/{seqname}.faa"
+    output:
+        "intermediate/{seqname}.mafft_aligned.faa"
+    shell:
+        "module load mafft && "
+        "mafft {input} > {output}"
+
+
+rule muscle:
+    input:
+        "data/{seqname}.faa"
+    output:
+        "intermediate/{seqname}.muscle_aligned.faa"
+    shell:
+        "module load muscle && "
+        "muscle -in {input} -out {output}"
+
 
 rule fasttree:
-    input: "temp/{seqname}.{aligner}_aligned.faa"
-    output: "temp/{seqname}.{aligner}_aligned.fasttree_{model}.tre"
-    log: "log/{seqname}.{aligner}_alignted.fasttree_{model}.log"
-    shell: "module load fasttree && fasttree -{wildcards.model} -log {log} {input} > {output}"
-
+    input:
+        "intermediate/{seqname}.{aligner}_aligned.faa"
+    output:
+        "results/{seqname}.{aligner}_aligned.fasttree_{model}.tre"
+    log:
+        "log/{seqname}.{aligner}_aligned.fasttree_{model}.log"
+    shell:
+        "module load fasttree && "
+        "fasttree -{wildcards.model} -log {log} {input} > {output}"
